@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Virtual Pet Documentation</title>
+</head>
+<style>
+
+h3{
+ text-align: center;
+ font-size:150%;
+}
+p{font-size:150%;
+}			 
+} </style>
+<body style="background-image: linear-gradient( GreenYellow ,white);">
+
+	<h1 style="font-family:Arial Black;font-size:180%;text-align: center;LINE-HEIGHT:20px;text-shadow: 0px 0px 10px rgba(255,0,0,0.9);">DOCUMENTATION</h1>
+	<center><h2>Project Three: CS164-Fall-2018.<br>Virtual Pet</h2></center>
+    <strong><p>Kiruthik Sai<br>12/5/2018<br>14268642<br>Brian.L.Stuart, CS164-A<br></p></strong>
+	<h2>AIM</h2>
+	<p>      To generate a dynamic webpage primarily using timeout functions which changes the state of the Pet displayed in the page. This mainly aims at reversing back the pet to normal stage by reactive stimuli such as petting and feeding</p>
+	<h2>Function</h2>
+	<h3>Body</h3>
+	<p> The body contains the main tags specified for the whole layout of the entire webpage. 
+	It primarily has three dynamic tags which change when the program enters to different functions.
+	They are the Image tag, the tag stating the state of the pet and the responsive buttons. This functions plays the role as the skeleton framework of the frontend design.
+	Once the code enters from the main page to the "Go" function the dynamic behaviour applies.
+	</p>
+	<h3>After entering function Go</h3>
+	<p>The Go function randomly chooses a state path for the pet. This state will be furthered and can only be reverted by clicking the correct button.
+	Example: If the computer randomly chooses the hungry path, the pet KAT will get hungrier and hungrier until it gets sick. This can be reverted by feeding him, which will lead to being him normal and happy again.
+	The path it follows is completely random. The timeout function is set to 5 seconds, after which the state of the KAT dynamically changes. The main three states (or) changes the KAT can undergo is Hunger, Sadness or Cursed!
+	</p>
+	<h3>Other Functions</h3>
+	<p> The other functions are as a result of set timeout function, which gets invoked after the specified time.
+	These functions define the certain state of the pet and the state gets severe after the time, so that it gets into the next function and so on until the most severe stage</p>
+	<h3>Timeout functions</h3>
+	<p>The SetTimeout and ClearTimeout function is used to switch from function to function automatically after a slice of time. This helps in bringing out the change in state of pet more smoothly </p>
+	<h3>The Main Buttons</h3>
+	<p> The buttons are listed in order to reverse the state of the pet back to normal. This is followed by a gif that depicts how the pet intakes or undergoes the reversal change, which is executed by running into another function</p>
+	<br>
+	<br>
+	<h3>The state machine</h3>
+	<p> The flowchart of the state machine is illustrated below</p>
+	<center><img src="doc.jpg"></center>
+	<div style=" position: fixed;
+    bottom: 0;
+    left:0;
+    width: 199px;
+	font-size:30px
+	">
+    By Kiruthik Sai
+    </div>
+
+</body>
+</html>

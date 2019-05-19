@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calandar</title>
+<script>
+function go()
+{ var m,y;
+m=(document.getElementById("month").value);
+y=(document.getElementById("year").value);
+
+var last_two= y.charAt(2)+ y.charAt(3);
+
+var first_two= y.charAt(0)+ y.charAt(1);
+
+var day_date;
+m=Number(m);
+mo=m;
+
+var first_2=Number(first_two);
+var last_2=Number(last_two);
+if(mo==1||mo==2)
+{
+mo=mo+10;
+last_2=(last_2-1);
+}
+else
+{
+mo=mo-2;
+}
+var val= 29 + Math.floor(((13*mo)-1)/5)+ last_2 + Math.floor((last_2)/4)+Math.floor(first_2/4)-(2*first_2);
+if (val<0)
+{
+val= Math.abs(val);
+day_date= 7-(val%7);
+}
+day_date= (val%7);
+
+var no_days;
+if(m==1||m==3||m==5||m==7||m==8||m==10||m==12)
+no_days=31;
+else if(m==4||m==6||m==9||m==11)
+no_days=30;
+else if(m==2)
+{
+if (y%400==0)
+   {
+      no_days=29;
+	  console.log("Leap Year");
+	  
+    }
+    else if(y%100==0){
+      no_days=28;
+    }
+    else if(y%4==0){
+      no_days=29;
+	  console.log("Leap Year");
+    }
+    else{
+      no_days=28;
+    }
+ 
+}
+var calen= calgen(day_date,no_days)
+document.getElementById("calendar").appendChild(calen);
+
+}
+
+function calgen(day_date,no_days)
+{ var table = document.createElement('table');
+  var tr = document.createElement('tr');
+    for(var c=0; c<=6; c++){
+        var td = document.createElement('td');
+        td.innerHTML = "SMTWTFS"[c];
+        tr.appendChild(td);
+    }
+    table.appendChild(tr);
+    
+    
+    tr = document.createElement('tr');
+    var c;
+    for(c=0; c<=6; c++)
+	{
+        if(c == day_date)
+		{
+            break;
+        }
+        var td = document.createElement('td');
+        td.innerHTML = "";
+        tr.appendChild(td);
+    }
+    
+    var z = 1;
+    for(; c<=6; c++)
+	{
+        var td = document.createElement('td');
+        td.innerHTML = z;
+        z++;
+        tr.appendChild(td);
+    }
+    table.appendChild(tr);
+    
+    for(var r=3; r<=7; r++)
+	{
+        tr = document.createElement('tr');
+        for(var c=0; c<=6; c++)
+		{
+            if(z > no_days)
+			{
+                table.appendChild(tr);
+                return table;
+            }
+            var td = document.createElement('td');
+            td.innerHTML = z;
+            z++;
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+    }
+	return table;
+}
+</script>
+</head>
+<body style="background-image: linear-gradient( GreenYellow ,white);">
+
+	<h1 style="font-family:Arial Black;font-size:180%;text-align: center;LINE-HEIGHT:20px;text-shadow: 0px 0px 10px rgba(255,0,0,0.9);">CAL<span style="color:red;font-family:Comic Sans MS;font-size:100%;text-shadow: 0px 0px 10px rgba(0,0,0,0.9);">endar</span> GEN<span style="color:red;font-family:Comic Sans MS;font-size:100%;text-shadow: 0px 0px 10px rgba(0,0,0,0.9);">erator</span></h1>
+	<h3 style="text-align: center;font-size:150%;LINE-HEIGHT:0px;">Let's find real Dates for you.<span>&#x1F602</span></h3>
+	<br><br>
+		<p style="font-size:111%;">Instructions:<br>Enter the year and month's number( eg- November-11, December-12 ) accordingly in the given textboxes and click the "Go!" button and YAY!<br>Click the "Refresh" button for a fresh year to be calculated</p>
+	<br>
+<div style="text-align: center;"><h2>Year:</h2><textarea style="border: 3px solid #555;" autofocus id="year" rows="2" cols="7"></textarea>
+				<h2>Month:</h2><textarea style="border: 3px solid #555;" id="month" rows="2" cols="7"></textarea><br>
+	<button  style="display: inline-block;
+             padding: 15px 25px;font-size: 24px;
+             cursor: pointer;text-align: center;
+			 border-radius: 50%; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+			 box-shadow: 0 5px #666; transform: translateY(4px);" 
+			 onclick="go()">Go!
+			 </button>
+	<br><br>
+<input type="button" value="Refresh" onClick="document.location.reload(true)" 
+	style="display: inline-block;
+             padding: 15px 25px;font-size: 24px;
+             cursor: pointer;text-align: center;
+			 border-radius: 50%; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+			 box-shadow: 0 5px #666; transform: translateY(4px);">
+	<br><br>
+	<center><div style="
+    padding: 10px;
+    width: 260px;
+    height: 255px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    font-size: 31px;
+    font-family: Arial;
+    background-image: linear-gradient(#fff, #d3d3d3);" id="calendar"></div></center>
+	<div style="position: relative;">    
+
+    <div style=" position: fixed;
+    bottom: 0;
+    left:0;
+    width: 199px;
+	font-size:30px
+	
+	">
+    By Kiruthik Sai
+    </div>
+</div>
+	
+</div>
+</body>
+</html>

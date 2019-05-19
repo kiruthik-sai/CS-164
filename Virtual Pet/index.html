@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Virtual Pet</title>
+<style>
+button
+	{        text-align: center;
+			 display: inline-block;
+             padding: 15px 25px;font-size: 24px;
+             cursor: pointer;text-align: center;
+			 border-radius: 50%; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+			 box-shadow: 0 5px #666; transform: translateY(4px);
+	}
+h3{
+ text-align: center;
+}
+p{font-size:150%;
+}			 
+} </style>
+<script>
+var x;
+function go()
+{clearTimeout(x);
+document.getElementById("img").src = "hi.gif";
+document.getElementById("state").innerHTML = "Hi! I'm KAT. I randomly get bored, hungry or cursed. It's your responsibility to keep me safe!";
+document.getElementById("buton").innerHTML = '<button onclick="no()">Pet KAT</button><button onclick="no()">Feed KAT</button><button onclick="no()">Detoxify KAT</button>';
+var ran=Math.floor((Math.random() * 3) + 0);
+if (ran==0){
+setTimeout(hungry1, 6000);
+}
+else if(ran==1)
+{
+setTimeout(sad1, 6000);
+}
+else if(ran==2)
+{
+setTimeout(naughty1,6000);
+}
+console.log(ran);
+}
+function naughty1()
+{
+document.getElementById("img").src = "naughty1.jpg";
+document.getElementById("state").innerHTML = "It seems that I'm getting cursed by a evil force. Save me by giving the portion!";
+document.getElementById("buton").innerHTML = '<button onclick="detox()">Detox KAT</button>';
+x=setTimeout(naughty2, 5000);
+}
+function no()
+{clearTimeout(x);
+document.getElementById("img").src = "no.jpg";
+document.getElementById("state").innerHTML = "PLEASE NO! That's enough";
+alert("PLEASE NO! That's enough!");
+x=setTimeout(go, 3000);
+}
+function naughty2()
+{clearTimeout(x);
+document.getElementById("img").src = "naughty2.jpg";
+document.getElementById("state").innerHTML = "Could I be any more evil? I'm going to haunt you in your shower *Inserts evil laugh*";
+document.getElementById("buton").innerHTML = '<button onclick="detox()">Detox KAT</button>';
+x=setTimeout(naughty3, 5000);
+}
+function naughty3()
+{clearTimeout(x);
+document.getElementById("img").src = "naughty3.jpg";
+document.getElementById("state").innerHTML = "The end of the world is not too far. I'm officially a zombie now >_<";
+document.getElementById("buton").innerHTML = '<button onclick="detox()">Detox KAT</button>';
+}
+function detox()
+{clearTimeout(x);
+document.getElementById("img").src = "detox.gif";
+document.getElementById("state").innerHTML = "Gulp !";
+x=setTimeout(go, 3000);
+}
+function sad1()
+{clearTimeout(x);
+document.getElementById("img").src = "sad1.jpg";
+document.getElementById("state").innerHTML = "I'm feeling a little bored, let's play! YAY!";
+document.getElementById("buton").innerHTML = '<button onclick="pet()">Pet KAT</button>';
+x=setTimeout(sad2, 5000);
+}
+function sad2()
+{clearTimeout(x);
+document.getElementById("img").src = "sad2.jpg";
+document.getElementById("state").innerHTML = "Really?! You not gonna play with me?! You're one of the worst petkeeper ever";
+document.getElementById("buton").innerHTML = '<button onclick="pet()">Pet KAT</button>';
+x=setTimeout(sad3, 5000);
+}
+
+function sad3()
+{clearTimeout(x);
+document.getElementById("img").src = "sad3.jpg";
+document.getElementById("state").innerHTML = "I'm going to sleep. You are boring. Forget me. Zzzzzz... ";
+document.getElementById("buton").innerHTML = '<button onclick="pet()">Pet KAT</button>';
+
+}
+function hungry1()
+{clearTimeout(x);
+document.getElementById("img").src = "hungry1.gif";
+document.getElementById("state").innerHTML = "I'm little hungry, please feed me";
+document.getElementById("buton").innerHTML = '<button onclick="eating()">Feed KAT</button>';
+x=setTimeout(hungry2, 5000);
+}
+function eating()
+{clearTimeout(x);
+document.getElementById("img").src = "eating.gif";
+document.getElementById("state").innerHTML = "YAYAYAYAYAYAYAYAAY!!!!!!!!!";
+x=setTimeout(go, 3000);
+}
+function pet()
+{clearTimeout(x);
+document.getElementById("img").src = "pet.gif";
+document.getElementById("state").innerHTML = "YAYAYAYAYAYAYAYAAY!!!!!!!!!";
+x=setTimeout(go, 4000);
+}
+function hungry2()
+{clearTimeout(x);
+document.getElementById("img").src = "hungry1.jpg";
+document.getElementById("state").innerHTML = "Oh god! I'm sooo hungry. Please feed me something. ";
+document.getElementById("buton").innerHTML = '<button onclick="eating()">Feed KAT</button>';
+x=setTimeout(sick, 5000);
+}
+function sick()
+{clearTimeout(x);
+document.getElementById("img").src = "sick.jpg";
+document.getElementById("state").innerHTML = "R.I.P KAT- Owner didn't feed me. I'm sick.";
+document.getElementById("buton").innerHTML = '<button onclick="eating()">Feed KAT</button>';
+}
+</script>
+
+</head>
+<body style="background-image: linear-gradient( GreenYellow ,white);">
+
+	<h1 style="font-family:Arial Black;font-size:180%;text-align: center;LINE-HEIGHT:20px;text-shadow: 0px 0px 10px rgba(255,0,0,0.9);"> VIRTUAL PET</h1>
+	<h3 style="text-align: center;font-size:150%;LINE-HEIGHT:0px;"></h3>
+	
+		<p style="font-size:150%;">Instructions:<br> KAT is your pet cat that needs to be pet and fed frequently to prevent it from getting bored or starved to sickness. Sometimes it gets cursed by an evil force which leads it to trun into a zombie. Getting bored, hungry or cursed will be random</p>
+		<p>The documentation for the pet KAT can be found <a href="doc.html">here</a></p>
+    <center><img src="egg.jpg" id="img" style="height: 330px;
+    width:300px;"></center>
+	<br><br>
+	<h3 id="state">It's about to come !</h3>
+	<center><p id="buton"><button  style="display: inline-block;
+             padding: 15px 25px;font-size: 24px;
+             cursor: pointer;text-align: center;
+			 border-radius: 50%; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+			 box-shadow: 0 5px #666; transform: translateY(4px);" 
+			 onclick="go()">Go!
+			 </button>
+			</p></center>
+    <div style=" position: fixed;
+    bottom: 0;
+    left:0;
+    width: 199px;
+	font-size:30px
+	
+	">
+    By Kiruthik Sai
+    </div>
+
+</body>
+</html>
